@@ -1,21 +1,22 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { NameService } from './services/name';
+import { CounterStore } from './services/counter-store';
 
 @Component({
-  selector: 'app-demos-feature',
+  selector: 'app-counter-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // providers: [NameService],
   imports: [RouterOutlet, RouterLink],
+  providers: [CounterStore],
   template: `
     <div class="flex gap-4">
-      <a class="btn btn-primary" routerLink="signals">Signals</a>
-      <a class="btn btn-primary" routerLink="services">Services</a>
+      <a class="link" routerLink="ui">UI</a>
+      <a class="link" routerLink="prefs">Prefs</a>
     </div>
-    <div class="pt-4">
+
+    <div>
       <router-outlet />
     </div>
   `,
   styles: ``,
 })
-export class DemosComponent {}
+export class CounterComponent {}
